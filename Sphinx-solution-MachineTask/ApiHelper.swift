@@ -27,19 +27,23 @@ class ApiHelper{
             }
             
             
-            func parseUsersData(responseData: Data){
-                let decoder = JSONDecoder()
-                do {
-                    let user: [Users] = try decoder.decode([Users].self, from: responseData)
-                    
-                    
-                }catch {
-                    print("JSONDecoder failed")
-                }
-                self.protocolref?.getusers(usersArray: self.userArray)
-                
-            }
+            self.parseUsersData(responseData: responseData)
             
+        }
+        
+        dataTask.resume()
+        
+    }
+    
+    func parseUsersData(responseData: Data){
+        let decoder = JSONDecoder()
+        do {
+            let user: [Users] = try decoder.decode([Users].self, from: responseData)
+            
+            self.protocolref?.getusers(usersArray: user)
+
+        }catch {
+            print("JSONDecoder failed")
         }
         
     }
