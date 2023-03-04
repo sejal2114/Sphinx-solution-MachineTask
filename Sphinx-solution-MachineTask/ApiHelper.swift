@@ -6,8 +6,8 @@
 //
 
 import Foundation
-class Apihelper{
-    var userArray : Users?
+class ApiHelper{
+    var userArray : [Users] = []
    var protocolref : GetUserProtocol?
        
     func fetchApi(url:String, methodOfHttp:String, responseType: String){
@@ -29,13 +29,13 @@ class Apihelper{
             func parseUsersData(responseData: Data){
                 let decoder = JSONDecoder()
                 do {
-                    let user: Users = try decoder.decode(Users.self, from: responseData)
+                    let user: [Users] = try decoder.decode([Users].self, from: responseData)
                     
                     
                 }catch {
                     print("JSONDecoder failed")
                 }
-                self.protocolref?.getusers(usersArray: self.userArray!)
+                self.protocolref?.getusers(usersArray: self.userArray)
                 
             }
             

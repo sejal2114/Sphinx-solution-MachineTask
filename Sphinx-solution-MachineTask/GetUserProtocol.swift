@@ -7,6 +7,6 @@
 
 import Foundation
 protocol GetUserProtocol {
-    func getusers(usersArray: Users) // passing users array from this protocol
+    func getusers(usersArray: [Users]) // passing users array from this protocol
     
 }
