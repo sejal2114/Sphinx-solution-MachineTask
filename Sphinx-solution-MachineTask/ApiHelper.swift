@@ -8,8 +8,11 @@
 import Foundation
 class ApiHelper{
     var userArray : [Users] = []
-    var protocolref : GetUserProtocol?
-    
+    var populationArray : [Population] = []
+
+    var userProtocolref : GetUserProtocol?
+    var populationProtocolref : GetPopulationProtocol?
+
     
     func fetchApi(url:String, methodOfHttp:String, responseType: String){
         guard let url = URL(string: url) else {
@@ -26,9 +29,11 @@ class ApiHelper{
                 return
             }
             
-            
-            self.parseUsersData(responseData: responseData)
-            
+            if responseType == "Users" {
+                self.parseUsersData(responseData: responseData)
+            } else {
+                self.parsePopulationData(responseData: responseData)
+            }
         }
         
         dataTask.resume()
@@ -36,16 +41,34 @@ class ApiHelper{
     }
     
     func parseUsersData(responseData: Data){
-        let decoder = JSONDecoder()
-        do {
-            let user: [Users] = try decoder.decode([Users].self, from: responseData)
-            
-            self.protocolref?.getusers(usersArray: user)
-
-        }catch {
-            print("JSONDecoder failed")
-        }
         
+        let getJSONDictonary = try! JSONSerialization.jsonObject(with: responseData) as! [[String : Any]]
+        
+        for jsonObject in getJSONDictonary{
+            
+            let id = jsonObject["id"] as? Int ?? 0
+            let name = jsonObject["name"] as! String
+            let gender = jsonObject["gender"] as! String
+            
+            let newUser = Users(id: id, name: name, gender: gender)
+            
+            self.userArray.append(newUser)
+        }
+        self.userProtocolref?.getusers(usersArray: userArray)
     }
+    
+    func parsePopulationData(responseData: Data){
+        
+        let decoder = JSONDecoder()
+              do {
+                  let populationRoot: PopulationRoot = try decoder.decode(PopulationRoot.self, from: responseData)
+                  
+                  self.populationProtocolref?.getPopulation(populationArray: populationRoot.data)
+                
+              }catch {
+                  print("JSONDecoder failed")
+              }
+              
+          }
 }
 

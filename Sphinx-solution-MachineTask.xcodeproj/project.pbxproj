@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0606596029B33104006CD37F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606595F29B33104006CD37F /* HomeViewController.swift */; };
+		0606596329B355F4006CD37F /* PopulationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606596129B355F4006CD37F /* PopulationTableViewCell.swift */; };
+		0606596429B355F4006CD37F /* PopulationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0606596229B355F4006CD37F /* PopulationTableViewCell.xib */; };
+		0606596729B3578F006CD37F /* Population.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606596629B3578F006CD37F /* Population.swift */; };
+		0606596A29B35842006CD37F /* GetPopulationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606596929B35842006CD37F /* GetPopulationProtocol.swift */; };
+		0606596C29B35879006CD37F /* UIUpdatePopulationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0606596B29B35879006CD37F /* UIUpdatePopulationProtocol.swift */; };
 		062BD5EE29B320AF00FE01EE /* UserModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5ED29B320AF00FE01EE /* UserModelView.swift */; };
 		062BD5F029B3210E00FE01EE /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5EF29B3210E00FE01EE /* ApiHelper.swift */; };
 		062BD5F229B322EF00FE01EE /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5F129B322EF00FE01EE /* Users.swift */; };
@@ -24,6 +29,11 @@
 
 /* Begin PBXFileReference section */
 		0606595F29B33104006CD37F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0606596129B355F4006CD37F /* PopulationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationTableViewCell.swift; sourceTree = "<group>"; };
+		0606596229B355F4006CD37F /* PopulationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopulationTableViewCell.xib; sourceTree = "<group>"; };
+		0606596629B3578F006CD37F /* Population.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Population.swift; sourceTree = "<group>"; };
+		0606596929B35842006CD37F /* GetPopulationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopulationProtocol.swift; sourceTree = "<group>"; };
+		0606596B29B35879006CD37F /* UIUpdatePopulationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUpdatePopulationProtocol.swift; sourceTree = "<group>"; };
 		062BD5ED29B320AF00FE01EE /* UserModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelView.swift; sourceTree = "<group>"; };
 		062BD5EF29B3210E00FE01EE /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		062BD5F129B322EF00FE01EE /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -51,6 +61,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0606596529B3577C006CD37F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				062BD5F129B322EF00FE01EE /* Users.swift */,
+				0606596629B3578F006CD37F /* Population.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0606596829B35821006CD37F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				062BD5F329B324B900FE01EE /* GetUserProtocol.swift */,
+				062BD5F529B329A600FE01EE /* UIUpdateUsersProtocol.swift */,
+				0606596929B35842006CD37F /* GetPopulationProtocol.swift */,
+				0606596B29B35879006CD37F /* UIUpdatePopulationProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		066D290629B30EBD00975E84 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +100,8 @@
 		066D291129B30EBD00975E84 /* Sphinx-solution-MachineTask */ = {
 			isa = PBXGroup;
 			children = (
+				0606596829B35821006CD37F /* Protocols */,
+				0606596529B3577C006CD37F /* Model */,
 				066D291229B30EBD00975E84 /* AppDelegate.swift */,
 				066D291429B30EBD00975E84 /* SceneDelegate.swift */,
 				063A3A7929B3190F0068CB41 /* Main.storyboard */,
@@ -77,13 +109,12 @@
 				066D291D29B30EBF00975E84 /* LaunchScreen.storyboard */,
 				066D292029B30EBF00975E84 /* Info.plist */,
 				062BD5ED29B320AF00FE01EE /* UserModelView.swift */,
-				062BD5F129B322EF00FE01EE /* Users.swift */,
 				062BD5EF29B3210E00FE01EE /* ApiHelper.swift */,
-				062BD5F329B324B900FE01EE /* GetUserProtocol.swift */,
-				062BD5F529B329A600FE01EE /* UIUpdateUsersProtocol.swift */,
 				062BD5F729B32CC600FE01EE /* UserCollectionViewCell.swift */,
 				062BD5F829B32CC600FE01EE /* UserCollectionViewCell.xib */,
 				0606595F29B33104006CD37F /* HomeViewController.swift */,
+				0606596129B355F4006CD37F /* PopulationTableViewCell.swift */,
+				0606596229B355F4006CD37F /* PopulationTableViewCell.xib */,
 			);
 			path = "Sphinx-solution-MachineTask";
 			sourceTree = "<group>";
@@ -150,6 +181,7 @@
 				062BD5FA29B32CC600FE01EE /* UserCollectionViewCell.xib in Resources */,
 				066D291F29B30EBF00975E84 /* LaunchScreen.storyboard in Resources */,
 				066D291C29B30EBF00975E84 /* Assets.xcassets in Resources */,
+				0606596429B355F4006CD37F /* PopulationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,11 +192,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0606596729B3578F006CD37F /* Population.swift in Sources */,
 				062BD5F429B324B900FE01EE /* GetUserProtocol.swift in Sources */,
 				066D291329B30EBD00975E84 /* AppDelegate.swift in Sources */,
 				066D291529B30EBD00975E84 /* SceneDelegate.swift in Sources */,
 				062BD5F629B329A600FE01EE /* UIUpdateUsersProtocol.swift in Sources */,
+				0606596329B355F4006CD37F /* PopulationTableViewCell.swift in Sources */,
 				062BD5EE29B320AF00FE01EE /* UserModelView.swift in Sources */,
+				0606596A29B35842006CD37F /* GetPopulationProtocol.swift in Sources */,
+				0606596C29B35879006CD37F /* UIUpdatePopulationProtocol.swift in Sources */,
 				0606596029B33104006CD37F /* HomeViewController.swift in Sources */,
 				062BD5F929B32CC600FE01EE /* UserCollectionViewCell.swift in Sources */,
 				062BD5F229B322EF00FE01EE /* Users.swift in Sources */,
