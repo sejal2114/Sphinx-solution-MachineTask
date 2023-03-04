@@ -8,8 +8,9 @@
 import Foundation
 class ApiHelper{
     var userArray : [Users] = []
-   var protocolref : GetUserProtocol?
-       
+    var protocolref : GetUserProtocol?
+    
+    
     func fetchApi(url:String, methodOfHttp:String, responseType: String){
         guard let url = URL(string: url) else {
             return
@@ -41,6 +42,6 @@ class ApiHelper{
             
         }
         
-        
-        
     }
+}
+

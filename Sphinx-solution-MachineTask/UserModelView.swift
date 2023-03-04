@@ -7,6 +7,7 @@
 
 import Foundation
 class UserModelView: GetUserProtocol {
+    
     var userArray: [Users] = []
     var apihelper = ApiHelper()
     var uiUpdateUsersProtocol: UIUpdateUsersProtocol?

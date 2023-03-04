@@ -8,42 +8,51 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var usermodelView = UserModelView()
     
-    var userModelView = UserModelView()
-    
-    @IBOutlet weak var UserTableView: UITableView!
+    @IBOutlet weak var UserCollectionView: UICollectionView!
+    @IBOutlet weak var populationTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userModelView.uiUpdateUsersProtocol = self
-//           userModelView.populateData()
-        userModelView.fetchUsersData()
-           registerXib()
-           setTableDelegate()
+    usermodelView.fetchUsersData()
+        usermodelView.uiUpdateUsersProtocol = self
+        registerXib()
+        setTableDelegate()
     }
     
     func setTableDelegate(){
-        UserTableView.delegate = self
-        UserTableView.dataSource = self
+        UserCollectionView.delegate = self
+        UserCollectionView.dataSource = self
     }
     func registerXib() {
-        let nib = UINib(nibName: "UserTableViewCell", bundle: nil)
-        UserTableView.register(nib, forCellReuseIdentifier: "UserTableViewCell")
+        let nib = UINib(nibName: "UserCollectionViewCell", bundle: nil)
+        UserCollectionView.register(nib, forCellWithReuseIdentifier: "UserCollectionViewCell")
+        
+        
     }
 }
-
-}
-extension ViewController :  UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+extension HomeViewController :  UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        UserModelView.
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
-        let product = productViewModel.productArray[indexPath.row]
-        cell.productLabel.text = product.brand
-        cell.titleLabel.text = product.title
-        cell.priceLabel.text = "\(product.price)"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
+        let user = usermodelView.userArray[indexPath.row]
+        cell.idLabel.text = "\(user.id)"
+        cell.nameLabel.text = user.name
+        cell.genderLabel.text = user.gender
+       
         return cell
         
     }
+}
+extension HomeViewController: UIUpdateUsersProtocol {
+    func reloadDataOfUsers() {
+        DispatchQueue.main.async {
+            self.UserCollectionView.reloadData()
+        }
+    }
+}
+
