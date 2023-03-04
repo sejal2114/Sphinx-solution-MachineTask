@@ -9,18 +9,18 @@ import UIKit
 import MapKit
 
 class HomeViewController: UIViewController {
-    var usermodelView = UserModelView()
+    var homeViewModel = HomeViewModel()
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var UserCollectionView: UICollectionView!
+    @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var populationTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usermodelView.fetchUsersData()
-        usermodelView.fetchPopulationData()
-        usermodelView.uiUpdateUsersProtocol = self
-        usermodelView.uiUpdatePopulationProtocol = self
+        homeViewModel.fetchUsersData()
+        homeViewModel.fetchPopulationData()
+        homeViewModel.uiUpdateUsersProtocol = self
+        homeViewModel.uiUpdatePopulationProtocol = self
         registerXib()
         setTableDelegate()
         setMapLocation()
@@ -32,15 +32,15 @@ class HomeViewController: UIViewController {
     }
     
     func setTableDelegate(){
-        UserCollectionView.delegate = self
-        UserCollectionView.dataSource = self
+        userCollectionView.delegate = self
+        userCollectionView.dataSource = self
         
         populationTableView.delegate = self
         populationTableView.dataSource = self
     }
     func registerXib() {
         let nib = UINib(nibName: "UserCollectionViewCell", bundle: nil)
-        UserCollectionView.register(nib, forCellWithReuseIdentifier: "UserCollectionViewCell")
+        userCollectionView.register(nib, forCellWithReuseIdentifier: "UserCollectionViewCell")
         
         let nibTableCell = UINib(nibName: "PopulationTableViewCell", bundle: nil)
         populationTableView.register(nibTableCell, forCellReuseIdentifier: "PopulationTableViewCell")
@@ -48,12 +48,12 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController :  UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        usermodelView.userArray.count
+        homeViewModel.userArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
-        let user = usermodelView.userArray[indexPath.row]
+        let user = homeViewModel.userArray[indexPath.row]
         cell.idLabel.text = "\(user.id)"
         cell.nameLabel.text = user.name
         cell.genderLabel.text = user.gender
@@ -71,19 +71,19 @@ extension HomeViewController: UIUpdateUsersProtocol, UIUpdatePopulationProtocol 
     
     func reloadDataOfUsers() {
         DispatchQueue.main.async {
-            self.UserCollectionView.reloadData()
+            self.userCollectionView.reloadData()
         }
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        usermodelView.populationArray.count
+        homeViewModel.populationArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PopulationTableViewCell", for: indexPath) as! PopulationTableViewCell
-        let population = usermodelView.populationArray[indexPath.row]
+        let population = homeViewModel.populationArray[indexPath.row]
         cell.countryNameLabel.text = population.nation
         cell.populationLabel.text = "Population is \(population.population)"
         cell.yearLabel.text = population.year

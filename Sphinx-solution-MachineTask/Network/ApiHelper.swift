@@ -40,7 +40,7 @@ class ApiHelper{
         
     }
     
-    func parseUsersData(responseData: Data){
+    private func parseUsersData(responseData: Data){
         
         let getJSONDictonary = try! JSONSerialization.jsonObject(with: responseData) as! [[String : Any]]
         
@@ -57,7 +57,7 @@ class ApiHelper{
         self.userProtocolref?.getusers(usersArray: userArray)
     }
     
-    func parsePopulationData(responseData: Data){
+     private func parsePopulationData(responseData: Data){
         
         let decoder = JSONDecoder()
               do {

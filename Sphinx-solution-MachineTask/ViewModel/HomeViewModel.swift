@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class UserModelView: GetUserProtocol, GetPopulationProtocol {
+class HomeViewModel: GetUserProtocol, GetPopulationProtocol {
     
     var userArray: [Users] = []
     var populationArray: [Population] = []
