@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062BD5EC29B3204C00FE01EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5EB29B3204C00FE01EE /* HomeViewController.swift */; };
+		062BD5EE29B320AF00FE01EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5ED29B320AF00FE01EE /* HomeViewModel.swift */; };
+		062BD5F029B3210E00FE01EE /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5EF29B3210E00FE01EE /* ApiHelper.swift */; };
+		062BD5F229B322EF00FE01EE /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5F129B322EF00FE01EE /* Users.swift */; };
+		062BD5F429B324B900FE01EE /* GetUserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5F329B324B900FE01EE /* GetUserProtocol.swift */; };
+		062BD5F629B329A600FE01EE /* UIUpdateUsersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BD5F529B329A600FE01EE /* UIUpdateUsersProtocol.swift */; };
 		063A3A7A29B3190F0068CB41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 063A3A7929B3190F0068CB41 /* Main.storyboard */; };
 		066D291329B30EBD00975E84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066D291229B30EBD00975E84 /* AppDelegate.swift */; };
 		066D291529B30EBD00975E84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066D291429B30EBD00975E84 /* SceneDelegate.swift */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		062BD5EB29B3204C00FE01EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		062BD5ED29B320AF00FE01EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		062BD5EF29B3210E00FE01EE /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
+		062BD5F129B322EF00FE01EE /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		062BD5F329B324B900FE01EE /* GetUserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserProtocol.swift; sourceTree = "<group>"; };
+		062BD5F529B329A600FE01EE /* UIUpdateUsersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUpdateUsersProtocol.swift; sourceTree = "<group>"; };
 		063A3A7929B3190F0068CB41 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		066D290F29B30EBD00975E84 /* Sphinx-solution-MachineTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sphinx-solution-MachineTask.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		066D291229B30EBD00975E84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +72,12 @@
 				066D291B29B30EBF00975E84 /* Assets.xcassets */,
 				066D291D29B30EBF00975E84 /* LaunchScreen.storyboard */,
 				066D292029B30EBF00975E84 /* Info.plist */,
+				062BD5EB29B3204C00FE01EE /* HomeViewController.swift */,
+				062BD5ED29B320AF00FE01EE /* HomeViewModel.swift */,
+				062BD5F129B322EF00FE01EE /* Users.swift */,
+				062BD5EF29B3210E00FE01EE /* ApiHelper.swift */,
+				062BD5F329B324B900FE01EE /* GetUserProtocol.swift */,
+				062BD5F529B329A600FE01EE /* UIUpdateUsersProtocol.swift */,
 			);
 			path = "Sphinx-solution-MachineTask";
 			sourceTree = "<group>";
@@ -135,8 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062BD5F429B324B900FE01EE /* GetUserProtocol.swift in Sources */,
 				066D291329B30EBD00975E84 /* AppDelegate.swift in Sources */,
 				066D291529B30EBD00975E84 /* SceneDelegate.swift in Sources */,
+				062BD5F629B329A600FE01EE /* UIUpdateUsersProtocol.swift in Sources */,
+				062BD5EC29B3204C00FE01EE /* HomeViewController.swift in Sources */,
+				062BD5EE29B320AF00FE01EE /* HomeViewModel.swift in Sources */,
+				062BD5F229B322EF00FE01EE /* Users.swift in Sources */,
+				062BD5F029B3210E00FE01EE /* ApiHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
